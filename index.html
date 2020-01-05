@@ -14,7 +14,14 @@
 	<style>
 body {
 	background-color: black;
+	color: white;
 	text-align: center;
+	cursor: crosshair;
+}
+
+#scoreText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 100px;
 }
 
 .slider {
@@ -42,5 +49,6 @@ body {
 </head>
 <body>
 	<input type="range" min="1" max="20" step="any" class="slider" id="speedSlider" onkeydown="return false;">
+	<div id="scoreText"></div>
 </body>
 </html>

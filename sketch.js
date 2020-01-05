@@ -28,10 +28,11 @@ let time2 = 0;
 let cakeImage;
 
 function setup() {
+	document.getElementById("scoreText").innerText = "";
 	cakeImage = loadImage("cake.png");
 	createCanvas(width, height);
 	background(0);
-	noSmooth()
+	noSmooth();
 	textFont("Arial");
 	textSize(150);
 	strokeWeight(width/cols*strokeRatio);
@@ -94,25 +95,30 @@ function setup() {
 			text("PLAY", width/2, height/2+15);
 			return;
 		}
-
-	time = new Date().getTime() - startTime;
-	let speed = 1/document.getElementById("speedSlider").value*1000;
+		
+		
+		time = new Date().getTime() - startTime;
+		let speed = 1/document.getElementById("speedSlider").value*1000;
+		document.getElementById("scoreText").innerText = snake.score;
+		
+		if ((Math.ceil(time/speed)*speed) > (Math.ceil(time2/speed)*speed)) {
+			if (snake.tick(currentKey) === -1) {
+				setup();
+				started = false;
+				return;
+			}
+			
+			currentKey = null;
+		}
+		time2 = time;
+		
+		
+		for (row of blocks) {
+			for (block of row) {
+				block.draw();
+			}
+		}
+		
+		snake.draw();
+	}
 	
-	if ((Math.ceil(time/speed)*speed) > (Math.ceil(time2/speed)*speed)) {
-		if (snake.tick(currentKey) === -1) {
-			setup();
-			started = false;
-		}
-		currentKey = null;
-	}
-	time2 = time;
-
-
-	for (row of blocks) {
-		for (block of row) {
-			block.draw();
-		}
-	}
-
-	snake.draw();
-}

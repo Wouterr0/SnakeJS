@@ -44,6 +44,7 @@ class Snake {
 		this.directions = directions;
 
 		this.blocks = blocks;
+		this.score = 0;
 
 		this.color = color;
 		this.edgeColor = edgeColor;
@@ -134,6 +135,7 @@ class Snake {
 		// check if the snake touched the food
 		for (i = 0; i < this.shape.length; i++) {
 			if ((this.shape[i][0] === this.food.column) && (this.shape[i][1] === this.food.row)) {
+				this.score++;
 				this.grow();
 				this.generateFood();
 			}
