@@ -1,5 +1,5 @@
-let width = 800;
-let height = 800;
+let width = 600;
+let height = 600;
 
 let strokeRatio = 0.06;
 
@@ -33,7 +33,7 @@ function setup() {
 	background(0);
 	noSmooth()
 	textFont("Roboto");
-	textSize(200);
+	textSize(150);
 	strokeWeight(width/cols*strokeRatio);
 	
 	blocks = [];
