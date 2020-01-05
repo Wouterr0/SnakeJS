@@ -32,7 +32,7 @@ function setup() {
 	createCanvas(width, height);
 	background(0);
 	noSmooth()
-	textFont("Roboto");
+	textFont("Arial");
 	textSize(150);
 	strokeWeight(width/cols*strokeRatio);
 	
